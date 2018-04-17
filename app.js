@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 var AWS = require('aws-sdk');
+const cors = require('cors');
 
 AWS.config.loadFromPath('./config.json');
 
@@ -22,6 +23,7 @@ app.use(
 	})
 );
 
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
